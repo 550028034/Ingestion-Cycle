@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SOP Ticket Workbench</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #172b4d;
+      background: #f3f6fa;
+      font-synthesis: none;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-width: 320px; }
+    header {
+      padding: 26px max(24px, calc((100% - 1120px) / 2));
+      color: white;
+      background: #123b63;
+    }
+    header h1 { margin: 0 0 7px; font-size: 25px; }
+    header p { margin: 0; color: #d7e6f4; }
+    main { max-width: 1120px; margin: 24px auto; padding: 0 20px 36px; }
+    .nav { display: flex; gap: 10px; margin-bottom: 18px; }
+    button {
+      border: 0;
+      border-radius: 6px;
+      padding: 11px 16px;
+      color: white;
+      background: #1769aa;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: #0e568f; }
+    button:disabled { opacity: .6; cursor: wait; }
+    button.secondary { color: #17456d; background: #e3edf6; }
+    button.secondary:hover { background: #d3e2ef; }
+    .panel, .step {
+      border: 1px solid #dce4ec;
+      border-radius: 9px;
+      background: white;
+      box-shadow: 0 2px 8px #18334c0b;
+    }
+    .panel { padding: 22px; margin-bottom: 18px; }
+    .panel h2 { margin: 0 0 8px; font-size: 20px; }
+    .muted, .help { color: #52657a; line-height: 1.5; }
+    .muted { margin: 0 0 16px; }
+    .step { padding: 18px; margin-top: 14px; }
+    .step h3 { margin: 0 0 12px; font-size: 16px; }
+    label { display: block; margin: 12px 0 6px; font-weight: 600; }
+    textarea {
+      display: block;
+      width: 100%;
+      min-height: 170px;
+      padding: 12px;
+      resize: vertical;
+      border: 1px solid #bdcbd9;
+      border-radius: 6px;
+      color: #172b4d;
+      background: #fbfcfe;
+      font: 13px/1.5 Consolas, "Courier New", monospace;
+    }
+    textarea.output { min-height: 220px; background: #f7f9fc; }
+    .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 12px; }
+    .status { margin: 12px 0 0; color: #52657a; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .status.error { color: #a4262c; }
+    .status.success { color: #177245; }
+    .hint {
+      margin-top: 12px;
+      padding: 12px;
+      border-left: 3px solid #e0a526;
+      background: #fff8e6;
+      color: #5d4a20;
+      line-height: 1.5;
+    }
+    [hidden] { display: none !important; }
+    @media (max-width: 600px) {
+      header { padding: 22px 18px; }
+      main { margin-top: 16px; padding: 0 12px 24px; }
+      .panel { padding: 16px; }
+      .nav button { flex: 1; padding-inline: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SOP Ticket Workbench</h1>
+    <p>Prepare SOPs and guide a ticket through the two Copilot-assisted steps.</p>
+  </header>
+  <main>
+    <nav class="nav" aria-label="Workflow">
+      <button id="showIngestion" class="secondary" type="button">Start ingestion cycle</button>
+      <button id="showTicket" type="button">Process ticket</button>
+    </nav>
+
+    <section id="ingestionPanel" class="panel">
+      <h2>Ingestion cycle</h2>
+      <p class="muted">Prepare SOP files and create jobs for manual Copilot extraction. This does not call an LLM automatically.</p>
+      <button id="startIngestion" type="button">Start ingestion cycle</button>
+      <p id="ingestionStatus" class="status" role="status">Checking ingestion status...</p>
+      <label for="ingestionOutput">Pipeline output</label>
+      <textarea id="ingestionOutput" class="output" readonly placeholder="The pipeline's job summary will appear here."></textarea>
+
+    </section>
+
+    <section id="ticketPanel" class="panel" hidden>
+      <h2>Process a ticket</h2>
+      <p class="muted">Generate the SOP matching prompt, test it in LLM, then use LLM's JSON response to build the resolution proposal prompt.</p>
+
+      <div class="step">
+        <h3>1. Provide the ticket and generate the matching prompt</h3>
+        <label for="ticketJson">Ticket JSON</label>
+        <textarea id="ticketJson" spellcheck="false" placeholder='Paste one ticket object or a {"tickets": [...]} request.'></textarea>
+        <div class="controls">
+          <button id="makeMatchPrompt" type="button">Generate SOP matching prompt</button>
+          <button id="copyMatchPrompt" class="secondary" type="button">Copy prompt</button>
+        </div>
+        <p id="matchStatus" class="status" role="status"></p>
+        <label for="matchPrompt">Prompt to test in Copilot</label>
+        <textarea id="matchPrompt" class="output" readonly placeholder="The matching prompt will appear here."></textarea>
+      </div>
+
+      <div class="step">
+        <h3>2. LLM's SOP matching JSON and generate the proposal prompt</h3>
+        <label for="matchResponse">LLM matching response JSON</label>
+        <textarea id="matchResponse" spellcheck="false" placeholder='Paste the JSON response, for example {"results": [...]}.'></textarea>
+        <div class="controls">
+          <button id="makeProposalPrompt" type="button">Continue to resolution proposal</button>
+          <button id="copyProposalPrompt" class="secondary" type="button">Copy proposal prompt</button>
+        </div>
+        <p id="proposalStatus" class="status" role="status"></p>
+        <label for="proposalPrompt">Proposal prompt to test in LLM</label>
+        <textarea id="proposalPrompt" class="output" readonly placeholder="The proposal prompt will appear here after matching results are supplied."></textarea>
+        <p class="help">Run this prompt in LLM to get the ticket-resolution proposal. Review it before using it in the ticket.</p>
+      </div>
+    </section>
+  </main>
+  <script>
+    const ingestionPanel = document.getElementById("ingestionPanel");
+    const ticketPanel = document.getElementById("ticketPanel");
+    const showIngestion = document.getElementById("showIngestion");
+    const showTicket = document.getElementById("showTicket");
+    const startIngestion = document.getElementById("startIngestion");
+    const ingestionStatus = document.getElementById("ingestionStatus");
+    const ingestionOutput = document.getElementById("ingestionOutput");
+    let statusTimer;
+
+    function selectPanel(panel) {
+      const showIngestionPanel = panel === "ingestion";
+      ingestionPanel.hidden = !showIngestionPanel;
+      ticketPanel.hidden = showIngestionPanel;
+      showIngestion.classList.toggle("secondary", !showIngestionPanel);
+      showTicket.classList.toggle("secondary", showIngestionPanel);
+    }
+
+    function setStatus(element, message, kind = "") {
+      element.textContent = message;
+      element.className = `status ${kind}`.trim();
+    }
+
+    async function readResponse(response) {
+      const data = await response.json();
+      if (!response.ok) {
+        const detail = typeof data.detail === "string" ? data.detail : JSON.stringify(data.detail || data);
+        throw new Error(`HTTP ${response.status}: ${detail}`);
+      }
+      return data;
+    }
+
+    function parseJsonInput(text, label) {
+      try {
+        return JSON.parse(text);
+      } catch (error) {
+        const positionMatch = error.message.match(/position\s+(\d+)/i);
+        if (!positionMatch) {
+          throw new Error(`${label} is not valid JSON: ${error.message}`);
+        }
+        const position = Number(positionMatch[1]);
+        const precedingText = text.slice(0, position);
+        const line = precedingText.split("\n").length;
+        const column = position - precedingText.lastIndexOf("\n");
+        const excerpt = text
+          .slice(Math.max(0, position - 35), Math.min(text.length, position + 35))
+          .replace(/\s+/g, " ");
+        throw new Error(
+          `${label} is invalid JSON at line ${line}, column ${column}. ` +
+          `Check for unescaped double quotes inside string values; escape them as \\\" or use single quotes. ` +
+          `Near: ${excerpt}`
+        );
+      }
+    }
+
+    async function refreshIngestionStatus() {
+      try {
+        const result = await readResponse(await fetch("/api/ingestion/status"));
+        if (result.status === "running") {
+          setStatus(ingestionStatus, "Ingestion is running...");
+          statusTimer = setTimeout(refreshIngestionStatus, 2000);
+          return;
+        }
+        startIngestion.disabled = false;
+        if (result.status === "idle") {
+          setStatus(ingestionStatus, "Ready to start.");
+        } else {
+          const output = [result.stdout, result.stderr].filter(Boolean).join("\n");
+          ingestionOutput.value = output || result.error || "Pipeline finished without console output.";
+          setStatus(
+            ingestionStatus,
+            result.status === "completed" ? "Ingestion preparation finished." : "Ingestion failed.",
+            result.status === "completed" ? "success" : "error"
+          );
+        }
+      } catch (error) {
+        startIngestion.disabled = false;
+        setStatus(ingestionStatus, error.message, "error");
+      }
+    }
+
+    showIngestion.addEventListener("click", () => selectPanel("ingestion"));
+    showTicket.addEventListener("click", () => selectPanel("ticket"));
+    startIngestion.addEventListener("click", async () => {
+      startIngestion.disabled = true;
+      ingestionOutput.value = "";
+      setStatus(ingestionStatus, "Starting ingestion...");
+      try {
+        const result = await readResponse(await fetch("/api/ingestion/start", { method: "POST" }));
+        setStatus(ingestionStatus, result.message || "Ingestion started.");
+        refreshIngestionStatus();
+      } catch (error) {
+        startIngestion.disabled = false;
+        setStatus(ingestionStatus, error.message, "error");
+      }
+    });
+
+    document.getElementById("makeMatchPrompt").addEventListener("click", async () => {
+      const button = document.getElementById("makeMatchPrompt");
+      const status = document.getElementById("matchStatus");
+      try {
+        const parsed = parseJsonInput(document.getElementById("ticketJson").value, "Ticket JSON");
+        const tickets = Array.isArray(parsed) ? parsed : (Array.isArray(parsed.tickets) ? parsed.tickets : [parsed]);
+        if (!tickets.length || tickets.some(ticket => !ticket || Array.isArray(ticket) || typeof ticket !== "object")) {
+          throw new Error("Provide one ticket object or a non-empty tickets array of ticket objects.");
+        }
+        button.disabled = true;
+        setStatus(status, "Building the matching prompt...");
+        const result = await readResponse(await fetch("/agent/match-prompt", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ tickets })
+        }));
+        document.getElementById("matchPrompt").value = result.prompt;
+        setStatus(status, "Prompt ready. Copy it to Copilot, run it, then paste the JSON response below.", "success");
+      } catch (error) {
+        setStatus(status, error.message, "error");
+      } finally {
+        button.disabled = false;
+      }
+    });
+
+    document.getElementById("makeProposalPrompt").addEventListener("click", async () => {
+      const button = document.getElementById("makeProposalPrompt");
+      const status = document.getElementById("proposalStatus");
+      try {
+        const parsedTicket = parseJsonInput(document.getElementById("ticketJson").value, "Ticket JSON");
+        const tickets = Array.isArray(parsedTicket) ? parsedTicket : (Array.isArray(parsedTicket.tickets) ? parsedTicket.tickets : [parsedTicket]);
+        const parsedMatch = parseJsonInput(document.getElementById("matchResponse").value, "Copilot matching response");
+        const matchResponse = parsedMatch.match_response || parsedMatch;
+        if (!tickets.length || !matchResponse || typeof matchResponse !== "object" || Array.isArray(matchResponse)) {
+          throw new Error("Provide ticket JSON and a matching response object containing a results array.");
+        }
+        button.disabled = true;
+        setStatus(status, "Building the resolution proposal prompt...");
+        const result = await readResponse(await fetch("/agent/proposal-prompts", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ tickets, match_response: matchResponse })
+        }));
+        const prompts = result.prompts || [];
+        document.getElementById("proposalPrompt").value = prompts.map(item => item.prompt).join("\n\n");
+        setStatus(status, `${prompts.length} proposal prompt(s) ready. Copy to Copilot and review the resulting proposal.`, "success");
+      } catch (error) {
+        setStatus(status, error.message, "error");
+      } finally {
+        button.disabled = false;
+      }
+    });
+
+    async function copyText(sourceId, statusId) {
+      const source = document.getElementById(sourceId);
+      const status = document.getElementById(statusId);
+      if (!source.value) {
+        setStatus(status, "Generate the prompt before copying it.", "error");
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(source.value);
+        setStatus(status, "Copied to clipboard.", "success");
+      } catch (error) {
+        setStatus(status, `Clipboard access failed: ${error.message}`, "error");
+      }
+    }
+
+    document.getElementById("copyMatchPrompt").addEventListener("click", () => copyText("matchPrompt", "matchStatus"));
+    document.getElementById("copyProposalPrompt").addEventListener("click", () => copyText("proposalPrompt", "proposalStatus"));
+    refreshIngestionStatus();
+  </script>
+</body>
+</html>

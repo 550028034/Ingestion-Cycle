@@ -1,0 +1,3036 @@
+[
+  {
+    "sop_id": "SOP-001",
+    "document_title": "Activation ID / Host Owner Mismatch",
+    "source_file_name": "Activation ID or Host Owner Mismatch.docx",
+    "source_path": "resources\\eDelivery SOP\\Activation ID or Host Owner Mismatch.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "SOP (troubleshooting)",
+    "functional_area": "Licensing / Device–Entitlement mapping",
+    "systems_applications": [
+      "FNO (FlexNet Operations / Flexera)"
+    ],
+    "error_codes_alerts": [
+      "Activation ID/Host owner mismatch",
+      "A response has been generated, but it reports the following status"
+    ],
+    "summary": "Fixes FNO license-generation error 'Activation ID/Host owner mismatch', caused when the account linked to the device differs from the account the Activation ID is mapped to. 1) Open the device and the Activation ID in FNO and compare account IDs; confirm with the user which account is correct. 2) If the device account is correct: user must get a new Activation ID under the correct account from whoever issued it. 3) If the Activation ID account is correct: check for entitlements on the device and remove them (set quantity = Qty on Server), Assign Account to the correct account ID, map the Activation ID (Validate), then ask the user to regenerate the license and confirm.",
+    "tags": [
+      "eDel - Activation ID/Host Mismatch",
+      "eDel - License Removal from Device"
+    ],
+    "keywords": [
+      {
+        "keyword": "Activation ID/Host owner mismatch",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "A response has been generated, but it reports the following status",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "FNO (FlexNet Operations / Flexera)",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "License generation",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "Assign Account",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "Map by Activation ID – Validate",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "Capability Response",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Activation ID",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Device Account ID",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Qty on Server",
+        "keyword_type": "Field / Identifier"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-002",
+    "document_title": "COF Alerts Monitoring",
+    "source_file_name": "COF Alerts Monitoring.docx",
+    "source_path": "resources\\eDelivery SOP\\COF Alerts Monitoring.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "Work instruction (monitoring)",
+    "functional_area": "Monitoring / Observability",
+    "systems_applications": [
+      "COF (Common Observability Framework)"
+    ],
+    "error_codes_alerts": [
+      "Container Restart Detected – prod Environment",
+      "Pod Availability Alert – eDelivery prod Environment",
+      "Host Memory Reporting Failure – prod Cluster",
+      "Host Disk Reporting Failure – prod Cluster",
+      "Host Process Monitoring Failure – prod Cluster",
+      "account service 4xx/5xx Errors in service Responses",
+      "Product service 4xx/5xx Errors in service Responses",
+      "Entitlement service 4xx/5xx Errors in service Responses",
+      "Flexera synchronization service 4xx/5xx Errors",
+      "Flexera wrapper service 4xx/5xx Errors",
+      "Edelivery 1.x edelivery service 4xx/5xx Errors",
+      "Edelivery 1.x edelivery-customer service 4xx/5xx Errors"
+    ],
+    "summary": "How to review DFS eDelivery alerts in COF: log in to COF, open the hamburger menu > Alerts, expand Folder filter and select 'dfs-edelivery-licensing' (28 alerts). Check each alert's status (ALERTING / ERROR / OK). Alerts are METRICS-type and cover container restarts, pod availability, host memory/disk/process reporting failures (prod cluster) and 4xx/5xx error rates for account, product, entitlement, Flexera synchronization, Flexera wrapper and eDelivery 1.x (edelivery / edelivery-customer) services.",
+    "tags": [
+      "eDel - DDL"
+    ],
+    "keywords": [
+      {
+        "keyword": "Container Restart Detected – prod Environment",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Pod Availability Alert – eDelivery prod Environment",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Host Memory Reporting Failure – prod Cluster",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Host Disk Reporting Failure – prod Cluster",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Host Process Monitoring Failure – prod Cluster",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "account service 4xx/5xx Errors in service Responses",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Product service 4xx/5xx Errors in service Responses",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Entitlement service 4xx/5xx Errors in service Responses",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Flexera synchronization service 4xx/5xx Errors",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Flexera wrapper service 4xx/5xx Errors",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Edelivery 1.x edelivery service 4xx/5xx Errors",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Edelivery 1.x edelivery-customer service 4xx/5xx Errors",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "ALERTING",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "ERROR",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "OK",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "COF (Common Observability Framework)",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "dfs-edelivery-licensing",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "kfuse-cp",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "cof.us.dhs.gehealthcare.com",
+        "keyword_type": "URL / Host"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-003",
+    "document_title": "Confluence Reports – Download History, Entitlements, Products, Download Packages & Files",
+    "source_file_name": "Confluence Reports.docx",
+    "source_path": "resources\\eDelivery SOP\\Confluence Reports.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "Work instruction (reporting)",
+    "functional_area": "Reporting",
+    "systems_applications": [
+      "Confluence",
+      "FNO Reports"
+    ],
+    "error_codes_alerts": [],
+    "summary": "Periodic FNO report extraction: in FNO Production go to Reports > Folders > Public folders – shared 'ALM Flex1214'. Open 'Download History (2 years)', refresh the query, Run and download. Repeat for 'Entitlements (5 years)' and 'Products, Download Packages and Files'. Upload all three files to the designated Box folder (ID 252137358853).",
+    "tags": [
+      "eDel - Report",
+      "eDel - Confluence Page",
+      "eDel - Download tracker"
+    ],
+    "keywords": [
+      {
+        "keyword": "FNO Reports",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Confluence",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "ALM Flex1214",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Download History (2 years)",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Entitlements (5 years)",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Products, Download Packages and Files",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "gehealthcare-fno.flexnetoperations.com",
+        "keyword_type": "URL / Host"
+      },
+      {
+        "keyword": "Box folder 252137358853",
+        "keyword_type": "URL / Host"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-004",
+    "document_title": "Creating Trial Entitlements for AW SOP",
+    "source_file_name": "Creating Trial Entitlements for AW SOP.docx",
+    "source_path": "resources\\eDelivery SOP\\Creating Trial Entitlements for AW SOP.docx",
+    "document_number": "DOC3301390",
+    "revision": "1",
+    "revision_date": "13-Feb-2026",
+    "document_type": "SOP",
+    "functional_area": "Entitlements / Trials",
+    "systems_applications": [
+      "FNO / Flexera",
+      "Pulse"
+    ],
+    "error_codes_alerts": [],
+    "summary": "Manual creation of time-limited trial entitlements in FNO for the AW modality (based on DOC3279209 Global Standard WI for Flexera Trial). Prerequisites: request arrives as a Pulse ticket from AW's dedicated GENPACT submitter; AW only (other modalities need their own QA-approved WI); only products on DOC3296519 AW Flexera Trial Application List. Request must say 'create an entitlement with expiration date', attach the Excel, set start = 'use first activation date', expiration = 'specify duration – X days', and send entitlement notification to customers and FEs; incomplete requests are held. Create the entitlement with 'TRIAL' prefixed to the auto-generated ID and deploy to the customer account; after expiry change state to 'Obsolete'. Risks: wrong product/account, re-activation if not obsoleted; AW owns the business risk of request data. Closure: reply with entitlement ID and trial period, close after requestor confirms.",
+    "tags": [
+      "eDel - Create Entitlement",
+      "eDel - Entitlement creation",
+      "eDel - Entitlement Status Change",
+      "eDel - Entitlement Email"
+    ],
+    "keywords": [
+      {
+        "keyword": "Obsolete",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "FNO / Flexera",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Pulse",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "AW modality",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "TRIAL (entitlement ID prefix)",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Use first activation date",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Specify duration – X days",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Entitlement notification email",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "GENPACT",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "RTS team",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "DOC3279209 Global Standard WI for Flexera Trial",
+        "keyword_type": "Document Reference"
+      },
+      {
+        "keyword": "DOC3296519 AW Flexera Trial Application List",
+        "keyword_type": "Document Reference"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-005",
+    "document_title": "DFS 504 Gateway Timeout Failure SOP",
+    "source_file_name": "DDL Gateway Timeout SOP- Rev 1.docx",
+    "source_path": "resources\\eDelivery SOP\\DDL Gateway Timeout SOP- Rev 1.docx",
+    "document_number": "Not stated",
+    "revision": "1",
+    "revision_date": "10-Apr-2026",
+    "document_type": "SOP",
+    "functional_area": "Order fulfilment / Integration (CSL–Flexera)",
+    "systems_applications": [
+      "ALM",
+      "APIGEE Gateway (180-second timeout)",
+      "COF",
+      "CSL",
+      "DFS",
+      "FNO / Flexera",
+      "Fabric / IT FABRIC",
+      "MDH",
+      "Pulse"
+    ],
+    "error_codes_alerts": [
+      "504 Server Error: Gateway Timeout",
+      "Duplicate entitlements / subscription activations"
+    ],
+    "summary": "When CSL calls Flexera for Create Entitlement or Create Line Item and it takes >180 s, the APIGEE gateway (180 s timeout) returns '504 Server Error: Gateway Timeout' to Fabric even though FNO completes; Fabric retries create duplicate entitlements/subscription activations in DFS and MDH. Two Pulse ticket scenarios: Create Entitlement failure (DFS API Create Entitlement) and Upgrade Entitlement failure (DFS API Create Line Item); ticket gives payload, order type, DFS API, failure timestamp, order number, error message. Risk: Low. Prereqs: GitLab access + VScan CLI, COF, ALM. Troubleshoot: run VscanCli, choose option 1/2, enter Order ID and time in UTC; logs in VScanCli.txt, output vscan_output_<timestamp>.json. No data → tell IT FABRIC DFS has no data and they must retry manually. Resolve: take entitlement ID + activation IDs from JSON, share with MDH; MDH returns DFS notification per activation ID; DFS maps entitlement ID to each and posts in the Pulse ticket to IT FABRIC; close after FABRIC confirms. Setup: download vscancli repo from GitLab, edit dist/VscanCliconfig.json (client_id, client_secret, base_url, path) per env dev/qa/alpha/stage/prod. POCs: FABRIC – Suma N, Nitesh Gopalani; MDH – Craig Goodenough, Steve Knezic.",
+    "tags": [
+      "eDel - DDL",
+      "eDel - VScan",
+      "eDel - Flexera API"
+    ],
+    "keywords": [
+      {
+        "keyword": "504 Server Error: Gateway Timeout",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "Duplicate entitlements / subscription activations",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "APIGEE Gateway (180-second timeout)",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "CSL",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Fabric / IT FABRIC",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "MDH",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "DFS",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "FNO / Flexera",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "COF",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "ALM",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Pulse",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Create Entitlement (DFS API)",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "Create Line Item (DFS API)",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "VScan CLI (VscanCli)",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "VScanCli.txt",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "vscan_output_<timestamp>.json",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "VscanCliconfig.json",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "Upgrade Entitlement Order",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "client_id / client_secret / base_url / path",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Order ID / failure timestamp (UTC)",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "gitlab.apps.ge-healthcare.net/edelivery/vscancli",
+        "keyword_type": "URL / Host"
+      },
+      {
+        "keyword": "Suma N (FABRIC)",
+        "keyword_type": "Contact / Escalation"
+      },
+      {
+        "keyword": "Nitesh Gopalani (FABRIC)",
+        "keyword_type": "Contact / Escalation"
+      },
+      {
+        "keyword": "Craig Goodenough (MDH)",
+        "keyword_type": "Contact / Escalation"
+      },
+      {
+        "keyword": "Steve Knezic (MDH)",
+        "keyword_type": "Contact / Escalation"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-006",
+    "document_title": "Device Downloads History Report",
+    "source_file_name": "Device_Downloads_History.docx",
+    "source_path": "resources\\eDelivery SOP\\Device_Downloads_History.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "Work instruction (reporting)",
+    "functional_area": "Reporting",
+    "systems_applications": [
+      "FNO Reports – Result Objects"
+    ],
+    "error_codes_alerts": [],
+    "summary": "Refresh the Device Downloads History master file. In FNO Production build reports by dragging required fields into Result Objects and Run; extract two reports (package/file ID data and device country code). For each: delete top 3 rows and first column, save as 'product_data.xlsx' and 'Device Country Code.xlsx' in the Python script folder. Run the device downloads Python script. VLOOKUP 'Device Account Country' against 'Device Country Name'. In the script output add 'PackageID' after 'Status Description' (copy from 'To Package', col F→N) and a country column next to 'id' via VLOOKUP. Append to the master file, remove duplicates, sort by Create date descending, clear filters and upload to Box folder 192562872253.",
+    "tags": [
+      "eDel - Report",
+      "eDel - Download tracker"
+    ],
+    "keywords": [
+      {
+        "keyword": "FNO Reports – Result Objects",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "product_data.xlsx",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "Device Country Code.xlsx",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "Device Country Name",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "Device downloads Python script",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "Device Account Country",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "PackageID",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "To Package",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Status Description",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Create date",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Box folder 192562872253",
+        "keyword_type": "URL / Host"
+      },
+      {
+        "keyword": "gehealthcare-fno.flexnetoperations.com",
+        "keyword_type": "URL / Host"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-007",
+    "document_title": "SOP on Digital Delivery and Licensing (DDL) Error Alerts – Rev 3",
+    "source_file_name": "Digital Delivery and Licensing Error SOP - DOC3391813-Rev3.docx",
+    "source_path": "resources\\eDelivery SOP\\Digital Delivery and Licensing Error SOP - DOC3391813-Rev3.docx",
+    "document_number": "DOC3391813",
+    "revision": "3",
+    "revision_date": "24-Sep-2026",
+    "document_type": "SOP (alert runbook)",
+    "functional_area": "Monitoring / Alert handling",
+    "systems_applications": [
+      "ALM",
+      "COF",
+      "Flexera / FNO",
+      "Kubernetes",
+      "Pulse"
+    ],
+    "error_codes_alerts": [
+      "RETRY LIMIT EXCEEDED - Exhausted message",
+      "deleting from DLQ",
+      "OOMKilled",
+      "{$ENV}Device Registration DLQ Maximum Retry Count Reached",
+      "{$ENV}-Device Registration_Lambda_Timeout_Alert",
+      "[RESOLVED] DLQ_RetryLimitExceeded_SubscriptionService_{$ENV}",
+      "{$ENV}_Subscription_Service_SNS_Retries_Exhausted",
+      "{$ENV} ACTIVATION DLQ Maximum Retry Count Reached",
+      "{$ENV} Subscription Max Retry Count Reached for Activation ID",
+      "Notification Failure for Renewal / Expiry / Activation Flow",
+      "SNS_Publish_Retry_Attempts_Exhausted_AccountService_{$ENV}",
+      "Kubernetes Alert: K8S service using more than 80% CPU in last 15 minutes",
+      "Kubernetes Alert: K8S service using more than 80% memory in last 15 minutes",
+      "Kubernetes Alert: Pod Restart Detected [Prod Cluster]",
+      "Synthetic Monitoring <Service-Name> Service Endpoint Prod",
+      "<Service-Name> service 4xx/5xx Errors in service Responses",
+      "prod nodes memory utilization threshold > 80% for Over 15 Minutes",
+      "Container Alert: CrashLoopBackOff Detected in Kubernetes Pod (prod Cluster)",
+      "Kubernetes Alert: Pod Stuck in Pending State [Prod Cluster]",
+      "Infrastructure Alert: Host Not Responding [Prod Cluster]",
+      "Kubernetes Alert: <Service-Name> Service is Unavailable",
+      "Failed to Save Initial Async Status Result",
+      "Failed to Save Initial Async Update Entitlement Result",
+      "Failed to Publish DLQ Event",
+      "Publishing Update Entitlement to EntitlementDLQ",
+      "Failed to Publish Update Entitlement DLQ Event",
+      "Failed to Save Initial Async Line-Item Status Result",
+      "Failed to Save Initial Async Update Line-Item Result",
+      "Failed to Save Initial Async Result",
+      "Failed to Publish DLQ Event (Entitlement-Specific)",
+      "Entitlement DLQ Depth Threshold Exceeded",
+      "Entitlement Queue Message Processing Failed"
+    ],
+    "summary": "Alert runbook for DDL 2.7.0: RTS copies the alert email subject, finds the matching alert and follows its action, using the email timestamp to track monitoring windows. LICENSE SERVICE: '{$ENV}Device Registration DLQ Maximum Retry Count Reached' (72 h, 3 retries) is handled by RTS – open Pulse incident; take Account ID, Device ID, Activation ID from email; if device missing create it in Flexera (Name & ID = Device ID, ID Type STRING, Account), then Licenses > Map by Activation IDs > Validate and confirm the license line; record in incident. All other license alerts → immediate Pulse incident to @eDeliveryInfra: Device Registration_Lambda_Timeout_Alert, DLQ_RetryLimitExceeded_SubscriptionService (5 retries × 4 h; COF pattern 'RETRY LIMIT EXCEEDED - Exhausted message; deleting from DLQ'), Subscription_Service_SNS_Retries_Exhausted, ACTIVATION DLQ Maximum Retry Count Reached, Subscription Max Retry Count Reached for Activation ID, Notification Failure for Renewal/Expiry/Activation Flow (Failed Audit Scheduler, 3 retries), SNS_Publish_Retry_Attempts_Exhausted_AccountService. INFRASTRUCTURE (Kubernetes): pod CPU/memory >80% and node memory >80% → monitor 1 h; Pod Restart → 30 min; 4xx/5xx → 2 h (repeat during window → incident); Synthetic Monitoring failure → immediate; CrashLoopBackOff, Pod Stuck in Pending, Host Not Responding, Service Unavailable → incident if no resolution notice in 30 min. DELIVERY SERVICE: async status/entitlement/line-item save failures, DLQ publish failures, EntitlementDLQ publishing, Entitlement Queue processing failure → monitor 2 h; Entitlement DLQ Depth Threshold Exceeded → immediate. Risk: none except minor for device/line-item mapping. Prereqs: Pulse, ALM (if engineering requests a Problem Report).",
+    "tags": [
+      "eDel - DDL",
+      "eDel - Device setup"
+    ],
+    "keywords": [
+      {
+        "keyword": "RETRY LIMIT EXCEEDED - Exhausted message; deleting from DLQ",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "OOMKilled",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "{$ENV}Device Registration DLQ Maximum Retry Count Reached",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "{$ENV}-Device Registration_Lambda_Timeout_Alert",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "[RESOLVED] DLQ_RetryLimitExceeded_SubscriptionService_{$ENV}",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "{$ENV}_Subscription_Service_SNS_Retries_Exhausted",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "{$ENV} ACTIVATION DLQ Maximum Retry Count Reached",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "{$ENV} Subscription Max Retry Count Reached for Activation ID",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Notification Failure for Renewal / Expiry / Activation Flow",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "SNS_Publish_Retry_Attempts_Exhausted_AccountService_{$ENV}",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Kubernetes Alert: K8S service using more than 80% CPU in last 15 minutes",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Kubernetes Alert: K8S service using more than 80% memory in last 15 minutes",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Kubernetes Alert: Pod Restart Detected [Prod Cluster]",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Synthetic Monitoring <Service-Name> Service Endpoint Prod",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "<Service-Name> service 4xx/5xx Errors in service Responses",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "prod nodes memory utilization threshold > 80% for Over 15 Minutes",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Container Alert: CrashLoopBackOff Detected in Kubernetes Pod (prod Cluster)",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Kubernetes Alert: Pod Stuck in Pending State [Prod Cluster]",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Infrastructure Alert: Host Not Responding [Prod Cluster]",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Kubernetes Alert: <Service-Name> Service is Unavailable",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Failed to Save Initial Async Status Result",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Failed to Save Initial Async Update Entitlement Result",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Failed to Publish DLQ Event",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Publishing Update Entitlement to EntitlementDLQ",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Failed to Publish Update Entitlement DLQ Event",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Failed to Save Initial Async Line-Item Status Result",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Failed to Save Initial Async Update Line-Item Result",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Failed to Save Initial Async Result",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Failed to Publish DLQ Event (Entitlement-Specific)",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Entitlement DLQ Depth Threshold Exceeded",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Entitlement Queue Message Processing Failed",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Kubernetes",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "COF",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Flexera / FNO",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Pulse",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "ALM",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "License Service",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "Subscription Service",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "Account Service",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "Delivery Service",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "DLQ (Dead Letter Queue)",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "SNS",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "Lambda",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "Failed Audit Scheduler",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "Map by Activation IDs",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "DDL 2.7.0",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "ID Type STRING",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "@eDeliveryInfra",
+        "keyword_type": "Account / Role / Group"
+      }
+    ],
+    "notes": "Current revision (DDL 2.7.0). Supersedes Rev 1 of DOC3391813."
+  },
+  {
+    "sop_id": "SOP-008",
+    "document_title": "SOP on Digital Delivery and Licensing (DDL) Error Alerts – Rev 1",
+    "source_file_name": "Digital Delivery and Licensing Error SOP - DOC3391813.docx",
+    "source_path": "resources\\eDelivery SOP\\Digital Delivery and Licensing Error SOP - DOC3391813.docx",
+    "document_number": "DOC3391813",
+    "revision": "1",
+    "revision_date": "13-Aug-2026",
+    "document_type": "SOP (alert runbook)",
+    "functional_area": "Monitoring / Alert handling",
+    "systems_applications": [
+      "ALM",
+      "AWS Batch",
+      "AWS CloudWatch",
+      "COF",
+      "EventBridge",
+      "Fargate",
+      "Pulse"
+    ],
+    "error_codes_alerts": [
+      "Synthetic Monitoring Subscription Service Endpoint Prod",
+      "Subscription Service 4xx/5xx Errors in Service Responses",
+      "Kubernetes Alert: Subscription Service is Unavailable",
+      "Mongo Entity Stale Data alert",
+      "SNS Publish failure for Account Creation FMEA",
+      "SQS Enqueue Failure for Status Log",
+      "Scheduler Failed to Send ACCEPTED Record to SQS",
+      "Max Retries Exhausted — Message Sent to DLQ",
+      "Flexera Wrapper Call Exception",
+      "SQS Receive Messages Failure",
+      "Audit Entry Save Failure (MongoDB)",
+      "Device Registration SQS publish failure",
+      "DLQ Retry limit exceeded",
+      "Device Registration Lambda Timeout",
+      "Device Registration DLQ Accumulation",
+      "SQS Publish Retries Exhausted"
+    ],
+    "summary": "DDL 2.6.0 alerts for Subscription Service (pushes FNO subscription events to registered downstream apps; supports SaaS/Subscription/Perpetual; handles holds, inactivate/reactivate), CSL Product Sync Scheduler (MongoDB sync with Flexera as AWS Batch job) and Licensing events. Symptoms: subscription notification not delivered; data missing in CSL/MongoDB; licensing failures. Subscription COF alerts: Synthetic Monitoring Subscription Service Endpoint Prod, Subscription Service 4xx/5xx Errors, Kubernetes Alert: Subscription Service is Unavailable. CSL sync: EventBridge/Batch submission/Fargate failures → Mongo Entity Stale Data alert; secrets, Flexera API, MongoDB upsert, audit logging failures → SNS alert. Licensing alerts: Account-Service SNS publish failure; Updates-Service Status Log API alerts 1–6 (SQS enqueue, scheduler ACCEPTED record, max retries→DLQ, Flexera wrapper exception, SQS receive, MongoDB audit save); Device Registration alerts (SQS publish, DLQ retry limit, Lambda timeout, DLQ accumulation); Subscription-Service SQS Publish Retries Exhausted. Resolution: open Pulse incident to @eDeliveryInfra; close with SPR/engineering steps. Risk: none.",
+    "tags": [
+      "eDel - DDL"
+    ],
+    "keywords": [
+      {
+        "keyword": "Synthetic Monitoring Subscription Service Endpoint Prod",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Subscription Service 4xx/5xx Errors in Service Responses",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Kubernetes Alert: Subscription Service is Unavailable",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Mongo Entity Stale Data alert",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "SNS Publish failure for Account Creation FMEA",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "SQS Enqueue Failure for Status Log",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Scheduler Failed to Send ACCEPTED Record to SQS",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Max Retries Exhausted — Message Sent to DLQ",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Flexera Wrapper Call Exception",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "SQS Receive Messages Failure",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Audit Entry Save Failure (MongoDB)",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Device Registration SQS publish failure",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "DLQ Retry limit exceeded",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Device Registration Lambda Timeout",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Device Registration DLQ Accumulation",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "SQS Publish Retries Exhausted",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "AWS Batch",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "EventBridge",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Fargate",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "AWS CloudWatch",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "COF",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "ALM",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Pulse",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Subscription Service",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "CSL Product Sync Scheduler",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "Updates-Service — Status Log API",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "Account-Service",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "SNS / SQS",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "MongoDB",
+        "keyword_type": "Database / Collection"
+      },
+      {
+        "keyword": "DDL 2.6.0",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "SPR (System Problem Report)",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "SaaS / Subscription / Perpetual",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "@eDeliveryInfra",
+        "keyword_type": "Account / Role / Group"
+      }
+    ],
+    "notes": "Older revision (DDL 2.6.0); superseded by DOC3391813 Rev 3."
+  },
+  {
+    "sop_id": "SOP-009",
+    "document_title": "Steps of Entering eDelivery Tickets in Pulse",
+    "source_file_name": "DOC3300162 Steps of entering eDelivery tickets in Pulse.pdf",
+    "source_path": "resources\\eDelivery SOP\\DOC3300162 Steps of entering eDelivery tickets in Pulse.pdf",
+    "document_number": "DOC3300162",
+    "revision": "1",
+    "revision_date": "05-Feb-2026",
+    "document_type": "Work instruction",
+    "functional_area": "Ticketing",
+    "systems_applications": [
+      "Pulse (ServiceNow)"
+    ],
+    "error_codes_alerts": [],
+    "summary": "Open pulse.service-now.com/mth > 'Submit a Business Application Incident' > Business application 'GEHC eDelivery' > Application Service/Environment 'gehc edelivery_Production' > enter short and detailed description > add attachments if needed > optionally 'Save as draft' for reuse > Submit.",
+    "tags": [
+      "eDel - User Guidance"
+    ],
+    "keywords": [
+      {
+        "keyword": "Pulse (ServiceNow)",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Submit a Business Application Incident",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "GEHC eDelivery",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "gehc edelivery_Production",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "pulse.service-now.com/mth",
+        "keyword_type": "URL / Host"
+      }
+    ],
+    "notes": "Identical copy also in Training folder."
+  },
+  {
+    "sop_id": "SOP-010",
+    "document_title": "eFMI Consignee List Template",
+    "source_file_name": "DOC3361412 eFMI Consignee List template.xlsx",
+    "source_path": "resources\\eDelivery SOP\\DOC3361412 eFMI Consignee List template.xlsx",
+    "document_number": "DOC3361412",
+    "revision": "2",
+    "revision_date": "09-Sep-2026",
+    "document_type": "Template",
+    "functional_area": "eFMI / FMI deployments",
+    "systems_applications": [
+      "FNO",
+      "MWS",
+      "Pulse"
+    ],
+    "error_codes_alerts": [],
+    "summary": "Template the requestor fills in and submits via Pulse (application 'gehc edelivery') so eDelivery support can create customer accounts, entitlements, devices and mappings for an eFMI deployment; state whether download is via portal or direct-to-device. See eFMI Deployment Guide DOC2880745. SLA: 24 h review, completion within 3 days after validation (longer if gaps). Rev 2 added columns O–U. List tab: FMI#, Modality, Region, System ID/Device ID, Product Name & Version in FNO, GON, customer name/address/city/state/postal code/country/country code/region, FE/TSE SSO, primary & secondary customer email/first/last name, Send Entitlement Email (Y/N). Keywords tab holds address-cleansing terms (e.g., Accounts Payable, ATTN, PO Box) for consignee/delivery name and address validation.",
+    "tags": [
+      "eDel - FMI Provisioning",
+      "eDel - FMI_Portal_Download",
+      "eDel - Direct to Device",
+      "eDel - Data Setup"
+    ],
+    "keywords": [
+      {
+        "keyword": "MWS",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "FNO",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Pulse",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "eFMI",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "FMI#",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "System ID / Device ID",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Product Name in FNO",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Product Version in FNO",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "GON",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "FE/TSE SSO",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Send Entitlement Email",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Portal download vs Direct to device",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "gehc edelivery (Pulse application)",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "DOC2880745 eFMI Deployment Guide",
+        "keyword_type": "Document Reference"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-011",
+    "document_title": "eFMI Portal Download SOP",
+    "source_file_name": "DOC3363566 eFMI_Portal_Download_SOP.docx",
+    "source_path": "resources\\eDelivery SOP\\DOC3363566 eFMI_Portal_Download_SOP.docx",
+    "document_number": "DOC3363566",
+    "revision": "1",
+    "revision_date": "21-Jul-2026",
+    "document_type": "SOP",
+    "functional_area": "eFMI / FMI deployments",
+    "systems_applications": [
+      "BuildSmart Integrator",
+      "FNO / Flexera",
+      "GLPROD",
+      "GitLab"
+    ],
+    "error_codes_alerts": [
+      "Non-deployed product (row skipped)"
+    ],
+    "summary": "Process for DFS support to create entitlements, devices and mappings in FNO for eFMI Portal Download deployments (all modalities). SLA: review within 24 h, completion in 3 business days if no gaps. Prereqs: completed DOC3361412 eFMI Consignee List; access to BuildSmart Integrator and GitLab. Steps: get account info from GLPROD by running Integrator report 'FMI_Query_With_Order' with comma-separated order numbers (max 400 per run, formula =A2&\",\"; merge multiple runs). Run the FMI Provisioning tool (from GitLab, see Readme): upload Consignee List (+ Accounts file if needed), enter FMI number, choose env UAT/PROD, device type Standalone/Server, authentication, Start Processing; SOAP requests/responses are logged. Tool validates product deployment, finds/creates account, creates entitlements (aggregating quantities), creates device, maps Activation ID; result workbook adds Assigned Account ID, Account Source/Creation Status, Entitlement ID, Activation ID, Line Item Qty, Entitlement/Device Creation and Activation Mapping Status, Comments. Rows with non-deployed products or no valid account are skipped; API failures go to Comments and log. Escalate job failures to Himanshu Yadav. Closure uses a standard template (actions, outcome, alignment, next steps).",
+    "tags": [
+      "eDel - FMI_Portal_Download",
+      "eDel - FMI Provisioning",
+      "eDel - Account Creation",
+      "eDel - Create Entitlement",
+      "eDel - Entitlement creation",
+      "eDel - Device setup"
+    ],
+    "keywords": [
+      {
+        "keyword": "Non-deployed product (row skipped)",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "BuildSmart Integrator",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "GLPROD",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "GitLab",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "FNO / Flexera",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "SOAP requests / responses",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "FMI_Query_With_Order",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "FMI Provisioning tool",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "eFMI Portal Download",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "UAT / PROD",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Standalone / Server device type",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Account Creation Status",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Entitlement Creation Status",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Device Creation Status",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Activation Mapping Status",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Assigned Account ID",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Account Source",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Line Item Quantity",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "DOC3361412 eFMI Consignee List template",
+        "keyword_type": "Document Reference"
+      },
+      {
+        "keyword": "Himanshu Yadav",
+        "keyword_type": "Contact / Escalation"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-012",
+    "document_title": "Enabling Missing Device Registration in FNO SOP",
+    "source_file_name": "Enabling Missing Device Registration in FNO SOP.docx",
+    "source_path": "resources\\eDelivery SOP\\Enabling Missing Device Registration in FNO SOP.docx",
+    "document_number": "DOC3299411",
+    "revision": "1",
+    "revision_date": "26-Feb-2026",
+    "document_type": "SOP",
+    "functional_area": "Installed Base / Device registration",
+    "systems_applications": [
+      "FNO / Flexera",
+      "Pulse"
+    ],
+    "error_codes_alerts": [],
+    "summary": "Registers Installed Base (IB) devices not created by automated workflows. Symptoms: expected devices missing in FNO, entitlement quantities wrong, users can't update software, product/version not mapped. Root causes: automation failure, product/entitlement data unavailable, device missing from upstream inputs, missing e-delivery HCAT on orders. Risks: devices down from wrong mapping, delayed updates, data inconsistency, rework. Prereqs: Pulse ticket to RTS with System ID, Product IDs (ED HCAT), required versions; confirm devices don't exist in FNO. Steps: validate request; tag ticket 'ULS-INTERNAL-<product ID>' and check prior tagged tickets to reuse/expand or create an internal customer account; create entitlements or adjust line-item quantities; create each device with System ID as Device ID and Name under the internal account and assign product+version line items; attach an FNO report of new devices and activated line items to the ticket. Close when all devices registered, line items assigned, report attached and requester notified.",
+    "tags": [
+      "eDel - Device setup",
+      "eDel - Data Setup",
+      "eDel - Create Entitlement",
+      "eDel - Entitlement creation"
+    ],
+    "keywords": [
+      {
+        "keyword": "FNO / Flexera",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Pulse",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "FNO device report",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "Installed Base (IB) device",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "ED HCAT / e-delivery HCAT",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "System ID",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Product ID",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Line-item quantity",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Internal customer account",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "RTS team",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "ULS-INTERNAL-<product ID>",
+        "keyword_type": "Ticket Reference"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-013",
+    "document_title": "SOP on Monitoring Entitlements and Devices Associated to FE Pool Account",
+    "source_file_name": "FE pool Entitlements and Devices.docx",
+    "source_path": "resources\\eDelivery SOP\\FE pool Entitlements and Devices.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "Work instruction (monitoring)",
+    "functional_area": "Data governance / Accounts",
+    "systems_applications": [
+      "FNO"
+    ],
+    "error_codes_alerts": [],
+    "summary": "Periodic check of restricted accounts in FNO. Entitlements on sold-to 'FE user pool for GEHC service' (labelled DO NOT MODIFY, ENTITLE or ADD DEVICES) expose products to the whole FE base: move any deployed entitlement to DRAFT and tell the creator to correct the account. Entitlements on 'MYORG': delete and tell the user this account is not for entitlements. Devices on the FE pool account: Edit > make Obsolete, share device details with the team and raise an incident.",
+    "tags": [
+      "eDel - FE User Pool Device",
+      "eDel - FE User Pool Entitlement",
+      "eDel - Obsolete Device",
+      "eDel - Entitlement Status Change",
+      "eDel - Entilement_Deletion"
+    ],
+    "keywords": [
+      {
+        "keyword": "DRAFT",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "Deployed",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "Obsolete",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "FNO",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "DO NOT MODIFY, ENTITLE or ADD DEVICES TO THIS ACCOUNT",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "FE user pool for GEHC service",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "MYORG",
+        "keyword_type": "Account / Role / Group"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-014",
+    "document_title": "Flexera Customer Account Records Realignment SOP",
+    "source_file_name": "Flexera Customer Account Records Realignment SOP.docx",
+    "source_path": "resources\\eDelivery SOP\\Flexera Customer Account Records Realignment SOP.docx",
+    "document_number": "DOC3301378",
+    "revision": "1",
+    "revision_date": "13-Feb-2026",
+    "document_type": "SOP",
+    "functional_area": "Accounts / Data migration",
+    "systems_applications": [
+      "DDL",
+      "FNO / Flexera",
+      "GLPROD"
+    ],
+    "error_codes_alerts": [],
+    "summary": "Migrating entitlements, devices and end-user accounts between duplicate customer accounts in FNO (Source/From → Destination/To). Cause: different 'Ship To' addresses in GLPROD orders create new accounts during DDL fulfilment. Prereqs: completed request form DOC3286865; accounts in same region/state/country; customer ID within Account ID must match (else L2 approval); Site IDs may differ; changes documented in FNO. Steps: validate form, region and customer number; identify entitlement IDs/device IDs/users; check device presence in 'To' account; migrate only listed items, map devices to entitlements, document in FNO; never delete accounts; validate with requestor. Risk: entitlement/device mapping errors, account integrity; modality owns business risk. Closure text: 'Customer account data migration in Flexera (FNO) completed successfully…'.",
+    "tags": [
+      "eDel - Data Migration",
+      "eDel - Entitlement_Transfer"
+    ],
+    "keywords": [
+      {
+        "keyword": "GLPROD",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "FNO / Flexera",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "DDL",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Duplicate customer account",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Source/From → Destination/To account",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Ship To address",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Site ID",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Customer ID / Account ID",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "L2 approval",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "DOC3286865 Flexera Customer Account Records Realignment Request Form",
+        "keyword_type": "Document Reference"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-015",
+    "document_title": "How to Raise a Ticket with Flexera",
+    "source_file_name": "How to raise a ticket with Flexera.docx",
+    "source_path": "resources\\eDelivery SOP\\How to raise a ticket with Flexera.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "Work instruction",
+    "functional_area": "Vendor support",
+    "systems_applications": [
+      "Flexera Community portal"
+    ],
+    "error_codes_alerts": [],
+    "summary": "Raise a vendor case in the Flexera Community portal: Sign in (or 'Let's go' to register with GE email, AccountId 'GEHealthcare'), then Get Support > Open New Case, fill required fields and Save. View cases via 'Case Portal'.",
+    "tags": [
+      "eDel - Flexera Cases"
+    ],
+    "keywords": [
+      {
+        "keyword": "Flexera Community portal",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Get Support > Open New Case",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Case Portal",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "AccountId GEHealthcare",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "community.flexera.com",
+        "keyword_type": "URL / Host"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-016",
+    "document_title": "MWS to FNO Failures Troubleshooting",
+    "source_file_name": "MWS_to_FNO_failures SOP.docx",
+    "source_path": "resources\\eDelivery SOP\\MWS_to_FNO_failures SOP.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "SOP (troubleshooting)",
+    "functional_area": "Product sync (MWS → FNO)",
+    "systems_applications": [
+      "Boomi",
+      "FNO / Flexera",
+      "MWS (MyWorkshop)"
+    ],
+    "error_codes_alerts": [
+      "MWFNOE001",
+      "Error in PE_Product_FNO_v1_0 in prd01c",
+      "Create or Update Product Failed",
+      "6021: Product … is a duplicate"
+    ],
+    "summary": "Handles Boomi alerts sent when creating/updating a product in FNO fails (subject like 'MWFNOE001 - Error in PE_Product_FNO_v1_0 in prd01c - : Create or Update Product Failed'; fault e.g. '6021: Product <ID> with version <n> is a duplicate'). Take product name/version from the email and check it in MWS (Production vs Development instance). In Software and Subscriptions check 'eDelivery Software Platform': 'Product POD' → verify download-package association; 'Product' → compare MWS vs FNO structure. Scenario 1 – Frozen in MWS / Draft in FNO: Properties > Send BOM to eDelivery; if no fix and no entitlements, delete product in FNO and resend. Scenario 2 – Released in MWS / Deployed in FNO: if no entitlements, move to Draft and resend BOM; if still failing delete via CSL Delete API and resend. Scenario 3/4 – missing download packages/files: check Engineering BOM and item platform field (blank = not FNO); apply same state rules; if mapping unchanged, Reidentify the DP in FNO to 'DP ID_obs' and resend. If entitlements exist or nothing works, escalate to Himanshu/Zahid review group.",
+    "tags": [
+      "eDel - MWS Product Failure Email",
+      "eDel - Product Setup",
+      "eDel - Delete Product"
+    ],
+    "keywords": [
+      {
+        "keyword": "MWFNOE001",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "Error in PE_Product_FNO_v1_0 in prd01c",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "Create or Update Product Failed",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "6021: Product … is a duplicate",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "Frozen",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "Released",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "Draft",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "Deployed",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "Boomi",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "MWS (MyWorkshop)",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "FNO / Flexera",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Send BOM to eDelivery",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "CSL Delete API",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "prd01c.Boomi@ge.com",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "eDelivery Software Platform",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Product POD",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Engineering BOM",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Reidentify – DP ID_obs",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Download Package (DP)",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Himanshu / Zahid review group",
+        "keyword_type": "Contact / Escalation"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-017",
+    "document_title": "Outages Checklist",
+    "source_file_name": "Outages checklist.docx",
+    "source_path": "resources\\eDelivery SOP\\Outages checklist.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "Checklist",
+    "functional_area": "Incident / Outage management",
+    "systems_applications": [
+      "FlexNet Operations (FNO)",
+      "Revenera"
+    ],
+    "error_codes_alerts": [
+      "Revenera System Status Dashboard Incident",
+      "FlexNet Operations ALM PROD: License generator service down"
+    ],
+    "summary": "Unplanned Flexera (Revenera) outage: on Revenera status email (e.g., 'FlexNet Operations ALM PROD: License generator service down') raise an incident at once (ref INC0456455); decide whether to notify and whom (Producer users/FE users/both); if ETA unknown say 2 h and update every 2 h; raise a Flexera case for RCA; on resolution close incident with correct outage duration and send 'Outage Completed' email; log details in the outage Excel in Box folder 279893929860. Unplanned outage of eDelivery engineering apps: get Deepika's approval before sending communication, analyse logs, raise incident and start a Teams outage call with Engineering. Planned outage: send advance pre-notice, set Teams reminder, raise incident and send 'Started' email when it begins (ref INC0444310), test apps after, send completion email and close; meet Revenera (Deepak Kumar, Shari Davis) and Debasis/Himanshu/Zahid for details in CST; update the Box outage sheet.",
+    "tags": [
+      "eDel - Outage",
+      "eDel - Flexera Cases"
+    ],
+    "keywords": [
+      {
+        "keyword": "Revenera System Status Dashboard Incident",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "FlexNet Operations ALM PROD: License generator service down",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Revenera",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "FlexNet Operations (FNO)",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Unplanned outage",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Planned outage",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Flexera case (RCA)",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Microsoft Teams outage call",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Producer users / FE users",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "INC0456455",
+        "keyword_type": "Ticket Reference"
+      },
+      {
+        "keyword": "INC0444310",
+        "keyword_type": "Ticket Reference"
+      },
+      {
+        "keyword": "Box folder 279893929860",
+        "keyword_type": "URL / Host"
+      },
+      {
+        "keyword": "Deepika (approval)",
+        "keyword_type": "Contact / Escalation"
+      },
+      {
+        "keyword": "Deepak Kumar – Revenera",
+        "keyword_type": "Contact / Escalation"
+      },
+      {
+        "keyword": "Shari Davis – Revenera",
+        "keyword_type": "Contact / Escalation"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-018",
+    "document_title": "Product Line Creation (FNO via SoapUI)",
+    "source_file_name": "Product Line Creation.docx",
+    "source_path": "resources\\eDelivery SOP\\Product Line Creation.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "Work instruction",
+    "functional_area": "Product catalogue",
+    "systems_applications": [
+      "F5 VPN",
+      "FNO Production / UAT",
+      "MWS"
+    ],
+    "error_codes_alerts": [],
+    "summary": "Create/fix product lines (product categories) in FNO so they appear in MWS. Set up SoapUI project 'FNO_Prod' with the ProductPackagingService WSDL (disconnect F5 VPN if it errors); ref ticket GEINC10693549. Check if the product line exists (Product > Product line) and whether products are associated (advanced search). Use getUsersForProductCategory to see who created it; if not created by the CRM web-service user, delete and recreate with createProductCategory as crm_fno_webservices@ge.com. If products exist: Draft → note products, blank their Product Line, save, delete and recreate the line, re-add products, save as Draft. Deployed → check if entitled (Entitlements > List Entitlements by order); if entitled, give creating user the 'GEHC Peoplesoft_WebService' role, reset password and run assignProductCategoriesToUser; if not entitled, blank product line, delete/recreate, move to Deployed. Inactive/Obsolete rarely occur. Notify the user to check MWS next day.",
+    "tags": [
+      "eDel - Product line creation",
+      "eDel - Create Product Line",
+      "edel - Soap API",
+      "eDel - Product Setup"
+    ],
+    "keywords": [
+      {
+        "keyword": "Draft / Deployed / Inactive / Obsolete",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "F5 VPN",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "FNO Production / UAT",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "MWS",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "ProductPackagingService WSDL",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "getUsersForProductCategory",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "createProductCategory",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "assignProductCategoriesToUser",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "SoapUI",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "Product Line / Product Category",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "crm_fno_webservices@ge.com",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "GEHC Peoplesoft_WebService role",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "GEINC10693549",
+        "keyword_type": "Ticket Reference"
+      },
+      {
+        "keyword": "gehealthcare-fno.flexnetoperations.com",
+        "keyword_type": "URL / Host"
+      },
+      {
+        "keyword": "gehealthcare-fno-uat.flexnetoperations.com",
+        "keyword_type": "URL / Host"
+      }
+    ],
+    "notes": "SECURITY: source document contains plaintext FNO web-service passwords; they are intentionally not reproduced here. Recommend removing them from the SOP and rotating them."
+  },
+  {
+    "sop_id": "SOP-019",
+    "document_title": "RSVP – Flexera Integration: Software Updates/Downloads Troubleshooting",
+    "source_file_name": "RSVP updates_SWD TB SOP.docx",
+    "source_path": "resources\\eDelivery SOP\\RSVP updates_SWD TB SOP.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "SOP (troubleshooting)",
+    "functional_area": "Software updates / downloads (RSVP)",
+    "systems_applications": [
+      "Flexera / FNO",
+      "RSVP"
+    ],
+    "error_codes_alerts": [
+      "DEVICE_NOT_REGISTERED_IN_FLEXERA",
+      "UPDATES_NOT_FOUND",
+      "NO_LINKED_PACKAGE_FOUND",
+      "NO_PRODUCTS",
+      "Device not registered in FNO",
+      "Device not entitled",
+      "Curl error"
+    ],
+    "summary": "Troubleshoot RSVP device software updates/downloads through Flexera. Use Swagger UI (gehealthcare-ns / gehcstaging-ns /uai) with a Bearer token: POST updatesRequest (deviceClass CLIENT, id, idType STRING, platform, updateFromPkgId) → polling ID → GET updates; POST manifestRequest (uuid) → polling ID → GET download URLs. Bruno collections exist for CSL getPackage/getUpdates. 'Device not registered in FNO' → check device in the right environment. 'Device not entitled' → user checks contract dates with RSVP team; if valid, create entitlement and map. Curl error → internal device: network team steps; customer: whitelist gehealthcare-ns.flexnetoperations.com and download.flexnetoperations.com. DEVICE_NOT_REGISTERED_IN_FLEXERA: wrong FNO endpoint in RSVP; standalone device ID type not STRING (obsolete & recreate; AW LLS PUBLISHER_DEFINED allowed); MongoDB device sync (resave device, wait 30–60 min); CRM number ≠ device ID (check Insite logs, recreate). UPDATES_NOT_FOUND: no Update ID (create, start date in past, wait 1 h); package not synced (RSVP Packages API, resave, else CSL eng); device already on latest version. NO_LINKED_PACKAGE_FOUND: run CSL getPackage for fromPackage, resave and wait 1 h. NO_PRODUCTS: run CSL getProduct, update product and wait 10 min.",
+    "tags": [
+      "eDel - RSVP",
+      "eDel - Software Updates",
+      "eDel - Software download",
+      "eDel - Software Upgrade Issue"
+    ],
+    "keywords": [
+      {
+        "keyword": "DEVICE_NOT_REGISTERED_IN_FLEXERA",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "UPDATES_NOT_FOUND",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "NO_LINKED_PACKAGE_FOUND",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "NO_PRODUCTS",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "Device not registered in FNO",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "Device not entitled",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "Curl error",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "RSVP",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Flexera / FNO",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Local License Server (LLS)",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "updatesRequest",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "manifestRequest",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "CSL getPackage",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "CSL getProduct",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "CSL getUpdates",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "RSVP List API",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "RSVP Packages API",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "Swagger UI (uai)",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "Bruno (API collections)",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "Insite logs",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "MongoDB sync",
+        "keyword_type": "Database / Collection"
+      },
+      {
+        "keyword": "updateFromPkgId",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Polling ID",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Update ID",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Manifest ID",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "idType STRING",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "deviceClass CLIENT",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "PUBLISHER_DEFINED",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "CRM number",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "gehealthcare-ns.flexnetoperations.com",
+        "keyword_type": "URL / Host"
+      },
+      {
+        "keyword": "gehcstaging-ns.flexnetoperations.com",
+        "keyword_type": "URL / Host"
+      },
+      {
+        "keyword": "download.flexnetoperations.com",
+        "keyword_type": "URL / Host"
+      }
+    ],
+    "notes": "SECURITY: source document contains bearer tokens for Stage/Prod; they are intentionally not reproduced here. Recommend removing them from the SOP and revoking them."
+  },
+  {
+    "sop_id": "SOP-020",
+    "document_title": "Device Software Alignment and Entitlement Mapping SOP (Fix_upg_v12.py)",
+    "source_file_name": "RTS_Device_Upgrade_and_Mapping_SOP.docx",
+    "source_path": "resources\\eDelivery SOP\\RTS_Device_Upgrade_and_Mapping_SOP.docx",
+    "document_number": "Not stated",
+    "revision": "1.0",
+    "revision_date": "19-Oct-2026",
+    "document_type": "SOP",
+    "functional_area": "Device / Entitlement mapping automation",
+    "systems_applications": [
+      "DFS",
+      "FNO / Flexera",
+      "GitLab",
+      "GlobalConnect (SSL validation disabled)"
+    ],
+    "error_codes_alerts": [
+      "FAILED_FALLBACK_LOOKUP",
+      "FAILED_DELETE_ADDONS",
+      "FAILED_LINK_CHAIN",
+      "FALLBACK_MOVE_FAILED",
+      "GON_ACCOUNT_NOT_FOUND_*",
+      "HTTP 401 / 403",
+      "ModuleNotFoundError",
+      "Excel file format cannot be determined",
+      "Unsupported CSV layout",
+      "Input file is missing required columns",
+      "Bearer token cannot be blank",
+      "No mode rule is configured for account"
+    ],
+    "summary": "RTS runs Python script Fix_upg_v12.py (latest from GitLab; production FNO URLs only) to align devices to a requested product: resolve latest product version and fallback activation ID, remove existing add-on mappings, map the activation ID or chain, and move the device to a fallback account if needed; missing devices are created under the fallback account; GON workflow used when GON supplied. Input (1st CLI argument): Excel Device_Id/Product/Fallback_Account/GON, CSV add file (system_id, product, account) or reconcile file (system_id, desired_product, segment – first 3 columns only). Validate: no blanks, IDs as text, approved fallback accounts, no duplicates. Run 'python Fix_upg_v12.py \"<file>\"', enter bearer token at the hidden prompt (never store/share it); don't close the window. Output output_YYYYMMDD_HHMMSS.xlsx – review every row, filter FAILED/NOT_FOUND/NOT_SUCCESS, verify mapped_activation_ids, chain length, delete/move/link status, fallback_used, gon_account_id. Fallback modes: GI_IB single, CVUS_IB chain (target + up to 2 parents), WH_IB single. Troubleshoot: CSV/format/column errors, blank token, HTTP 401/403 (new token), no mode rule (stop), FAILED_FALLBACK_LOOKUP, FAILED_DELETE_ADDONS/FAILED_LINK_CHAIN/FALLBACK_MOVE_FAILED (escalate before rerun), ModuleNotFoundError. Risks: production API changes, wrong mapping, SSL validation disabled. Close only after every device reviewed; use closure template, never include token.",
+    "tags": [
+      "eDel - Software Upgrade Issue",
+      "eDel - Device setup",
+      "eDel - Bulk Operation"
+    ],
+    "keywords": [
+      {
+        "keyword": "FAILED_FALLBACK_LOOKUP",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "FAILED_DELETE_ADDONS",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "FAILED_LINK_CHAIN",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "FALLBACK_MOVE_FAILED",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "GON_ACCOUNT_NOT_FOUND_*",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "HTTP 401 / 403",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "ModuleNotFoundError",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "Excel file format cannot be determined",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "Unsupported CSV layout",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "Input file is missing required columns",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "Bearer token cannot be blank",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "No mode rule is configured for account",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "NOT_FOUND",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "NOT_SUCCESS",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "SUCCESS / GON_SUCCESS",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "CREATED_AND_FALLBACK_MAPPED",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "NO_CURRENT_ACCOUNT_ENTITLEMENT_FALLBACK_MAPPED",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "NO_TARGET_CHAIN_FOUND_FALLBACK_MAPPED",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "GlobalConnect (SSL validation disabled)",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "GitLab",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "FNO / Flexera",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "DFS",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Fix_upg_v12.py",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "output_YYYYMMDD_HHMMSS.xlsx",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "add_in_dfs / reconcile_in_dfs CSV",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "Fallback account",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Activation chain",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "GON",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Add-on mappings",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Device_Id / Product / Fallback_Account",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "system_id / desired_product / segment",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "FNO bearer token",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "GEHC_AVS_ServiceLifeCycle_GI_IB",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "GEHC_AVS_ServiceLifeCycle_CVUS_IB",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "GEHC_AVS_ServiceLifeCycle_WH_IB",
+        "keyword_type": "Account / Role / Group"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-021",
+    "document_title": "Monitor Self-Registration Failures",
+    "source_file_name": "Self Registration Failures.docx",
+    "source_path": "resources\\eDelivery SOP\\Self Registration Failures.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "Work instruction (monitoring)",
+    "functional_area": "Self-registration",
+    "systems_applications": [
+      "FNO",
+      "MongoDB Atlas",
+      "Pulse",
+      "Smartsheet"
+    ],
+    "error_codes_alerts": [
+      "ITC timeout",
+      "eDelivery Self-Registration FNO Transaction Failure",
+      "Requests Blocked notification"
+    ],
+    "summary": "Self-registration flow emails RTS on FNO transaction failures (after 3 automatic retries) and on blocked requests. Failure email ('eDelivery Self-Registration FNO Transaction Failure for user: <email>') shows each step: green = success, red = failed, blue = pending. Verify in FNO and complete the failed and remaining steps manually (user with first/last name/email and account ID 'SelfRegistered_<email>', then device etc. using Params). Blocked emails (ITC screening timeout) need no action. For Holds: in MongoDB Atlas (Edison Platform Production) open sr_bridger_screening for Hold requests, take TrackingId and look it up as ObjectId in sr_service_requests to get Device Serial Number and Part Number; log all failures in Smartsheet and raise a daily Pulse incident for Bridger Holds.",
+    "tags": [
+      "eDel - Self Registration Failure Email",
+      "eDel - Bridger Alerts",
+      "eDel - Account Creation",
+      "eDel - Device setup"
+    ],
+    "keywords": [
+      {
+        "keyword": "ITC timeout",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "eDelivery Self-Registration FNO Transaction Failure",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Requests Blocked notification",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Bridger Hold",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "MongoDB Atlas",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Smartsheet",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "FNO",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Pulse",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "sr_bridger_screening",
+        "keyword_type": "Database / Collection"
+      },
+      {
+        "keyword": "sr_service_requests",
+        "keyword_type": "Database / Collection"
+      },
+      {
+        "keyword": "Edison Platform Production",
+        "keyword_type": "Database / Collection"
+      },
+      {
+        "keyword": "TrackingId",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Device Serial Number",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "PartNumber / softwarePartNumber",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "activationCode",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "SelfRegistered_<email>",
+        "keyword_type": "Account / Role / Group"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-022",
+    "document_title": "SOP for Provisioning Users (eDelivery / FNO)",
+    "source_file_name": "Sop for Provisioning Users.docx",
+    "source_path": "resources\\eDelivery SOP\\Sop for Provisioning Users.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "SOP",
+    "functional_area": "Access management",
+    "systems_applications": [
+      "Customer Portal",
+      "MyAccess / Saviynt",
+      "Producer Portal"
+    ],
+    "error_codes_alerts": [
+      "Error Log"
+    ],
+    "summary": "Users request eDelivery access in MyAccess (Saviynt): Request Access for Self > eDelivery > Modify/Add account > choose Portal (Producer/Customer), Environment (Production live, Stage validated testing, UAT dev testing) and Role; required GE Learning course must be complete or the request is rejected. Approvals: L1 People Manager, L2 eDelivery Deployment Team; then a Pulse RITM is generated for support. Support searches FNO (UAT/Prod/Stage) Accounts & Users by SSO/name; if absent creates the user: customer users email sso@gehealthcare.com and link FE end users to 'FE user pool for GEHC service' with Portal User Role; producer users use GAL email and link to MY ORG with requested roles. Content Manager requests also need DEL_ssh_exception (Prod-AD) in Saviynt. Bulk creation: Administer > Import Data Objects > 'Account & User Template' (Unicode, headers unchanged) > Import; check job status and fix errors from the Error Log.",
+    "tags": [
+      "eDel - User Access",
+      "eDel - Bulk Operation",
+      "eDel - Data Import"
+    ],
+    "keywords": [
+      {
+        "keyword": "Error Log",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "MyAccess / Saviynt",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Producer Portal",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Customer Portal",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Account & User Template",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "Production / Stage / UAT",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Import Data Objects",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Content Manager",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "Entitlement Manager",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "FE EndUser",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "FE EndUser (SenoIris only)",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "GE Internal EndUser (NOT FOR FE)",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "GEHC Read Only",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "Reporting Only",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "Service Admin",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "FNE Device Management",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "Bulk Operations",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "Portal User Role",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "FE user pool for GEHC service",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "MY ORG",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "DEL_ssh_exception",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "Prod-AD",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "RITM (Pulse)",
+        "keyword_type": "Ticket Reference"
+      },
+      {
+        "keyword": "GEHC-DIG-EDELIVERY-FE",
+        "keyword_type": "Training Course"
+      },
+      {
+        "keyword": "GEHC-QUAL-US-181001-001222",
+        "keyword_type": "Training Course"
+      },
+      {
+        "keyword": "GEHC-DIG-EDELIVERY-CUSTOMER",
+        "keyword_type": "Training Course"
+      },
+      {
+        "keyword": "GEHC-DT-FNO-FLEXERA_CURR",
+        "keyword_type": "Training Course"
+      },
+      {
+        "keyword": "GEHC-DIG-180828-003945_CURR",
+        "keyword_type": "Training Course"
+      },
+      {
+        "keyword": "GEHC-DPS-Technology-190219-005031_CURR",
+        "keyword_type": "Training Course"
+      },
+      {
+        "keyword": "GEHC-DIG-EDELIVERY-ADMIN",
+        "keyword_type": "Training Course"
+      },
+      {
+        "keyword": "gehealthcare-fno.flexnetoperations.com",
+        "keyword_type": "URL / Host"
+      },
+      {
+        "keyword": "gehealthcare-fno-uat.flexnetoperations.com",
+        "keyword_type": "URL / Host"
+      },
+      {
+        "keyword": "gehcstaging-fno.flexnetoperations.com",
+        "keyword_type": "URL / Host"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-023",
+    "document_title": "SOP on CSL Product Sync Scheduler and Subscription Service Failure Alerts",
+    "source_file_name": "SOP on CSL Product Sync and Subscription Services Alerts.docx",
+    "source_path": "resources\\eDelivery SOP\\SOP on CSL Product Sync and Subscription Services Alerts.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "SOP (alert runbook)",
+    "functional_area": "Monitoring / Alert handling",
+    "systems_applications": [
+      "ALM",
+      "AWS Batch",
+      "COF",
+      "EventBridge",
+      "Fargate"
+    ],
+    "error_codes_alerts": [
+      "fails to publish sns notification",
+      "failed to update csl lineitem record",
+      "mongo audit insert exception",
+      "Mongo Entity Stale Data alert",
+      "CSL Product Sync Failure SNS Alert",
+      "Subscription Failure Alert"
+    ],
+    "summary": "Subscription Service pushes FNO subscription events to registered downstream apps (SaaS/Subscription/Perpetual; holds, inactivate/reactivate). CSL Product Sync Scheduler syncs Flexera data to MongoDB as an AWS Batch job (release 2.5.0). Symptoms: subscription notification not delivered; data missing in CSL/MongoDB. Subscription alerts (after 3 retries): SNS publish failure, CSL line-item update failure → inform Dev team via Teams/DRB. CSL sync: EventBridge/Batch/Fargate failures → Mongo Entity Stale Data alert; secrets, Flexera API, MongoDB upsert, audit logging failures → SNS alert (if SNS itself fails, eventually stale-data alert). Prereqs: ALM and COF access. Resolution: subscription failure → raise SPR in ALM and post in DRB chat; SNS sync alert → check COF logs (e.g., mongo audit insert exception), SPR if code issue; Mongo stale entity → check COF logs and raise incident to Infra/DevOps. Close with SPR/engineering steps. Root cause: unknown.",
+    "tags": [
+      "eDel - DDL",
+      "eDel - Engineering Defects"
+    ],
+    "keywords": [
+      {
+        "keyword": "fails to publish sns notification",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "failed to update csl lineitem record",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "mongo audit insert exception",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "Mongo Entity Stale Data alert",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "CSL Product Sync Failure SNS Alert",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "Subscription Failure Alert",
+        "keyword_type": "Alert"
+      },
+      {
+        "keyword": "AWS Batch",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "EventBridge",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Fargate",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "COF",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "ALM",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "CSL Product Sync Scheduler",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "Subscription Service",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "SNS",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "Flexera API",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "MongoDB",
+        "keyword_type": "Database / Collection"
+      },
+      {
+        "keyword": "SPR (System Problem Report)",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "DDL 2.5.0",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "DRB group chat",
+        "keyword_type": "Contact / Escalation"
+      },
+      {
+        "keyword": "Infra / DevOps team",
+        "keyword_type": "Contact / Escalation"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-024",
+    "document_title": "Resolving Flexera eDelivery Download Denials due to Export Control",
+    "source_file_name": "SOP_resolve_eDelivery_flexera_export_control_block.docx",
+    "source_path": "resources\\eDelivery SOP\\SOP_resolve_eDelivery_flexera_export_control_block.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "SOP / Knowledge article",
+    "functional_area": "Compliance / Export control",
+    "systems_applications": [
+      "Flexera End-User Portal"
+    ],
+    "error_codes_alerts": [
+      "We are unable to grant your request because our export control system has identified your request as a potentially non-compliant export",
+      "Export control block / download denial"
+    ],
+    "summary": "Flexera blocks downloads it flags as potential non-compliant exports (BIS rules); user sees 'We are unable to grant your request because our export control system has identified your request as a potentially non-compliant export…', Flexera auto-creates a case and emails flexeraexportcontrolscreening@gehealthcare.com; users may also raise an incident. Check the user on OFAC sanctions search and trade.gov Consolidated Screening List. Resolution: 1) ask the user's manager to confirm the user is not the denied party (share identifying details from official sources); 2) if account matches ABRL, consult ITC SMEs Ron Tearney and Nancy Boughton; 3) once cleared, submit Flexera's bypass form. Prior correspondence is kept in a Box folder. Do not share/request FNO user personal data. Risk: not applicable.",
+    "tags": [
+      "eDel - Software download",
+      "eDel - Flexera Cases"
+    ],
+    "keywords": [
+      {
+        "keyword": "We are unable to grant your request because our export control system has identified your request as a potentially non-compliant export",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "Export control block / download denial",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "Flexera End-User Portal",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Flexera bypass form",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "U.S. Bureau of Industry and Security (BIS)",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Denied party list",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "ABRL (Antiboycott Requester List)",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "flexeraexportcontrolscreening@gehealthcare.com",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "sanctionssearch.ofac.treas.gov",
+        "keyword_type": "URL / Host"
+      },
+      {
+        "keyword": "trade.gov CSL search",
+        "keyword_type": "URL / Host"
+      },
+      {
+        "keyword": "ITC SMEs – Ron Tearney, Nancy Boughton",
+        "keyword_type": "Contact / Escalation"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-025",
+    "document_title": "Add Users to GE HealthCare Distribution Lists",
+    "source_file_name": "Add users to Distribution List.docx",
+    "source_path": "resources\\eDelivery SOP\\Training\\Add users to Distribution List.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "Training / Work instruction",
+    "functional_area": "Access management",
+    "systems_applications": [
+      "Exchange Admin Center"
+    ],
+    "error_codes_alerts": [],
+    "summary": "Producer roles (Content Manager, Entitlement Manager, Service Admin) must be added to the matching DLs: ED.PRODUCERS.PROD, ed.producers.stage, ed.producers.uat; FE end users DL ed_fe_endusers. Manual: Exchange admin center > Groups > Groups I Own > DL > Members > View all and manage > Add members by SSO; repeat per environment. Bulk: run FNO User Export job, fill blank Status (Yes active / No inactive – skip) using Ctrl+G > Special > Blanks and '=' Ctrl+Enter, split role users to sheets, de-dupe SSO/emails into a Notepad file, then in the PowerApps 'Request: DL Bulk Import' select Exchange Distribution Groups and the DL, attach file and Submit.",
+    "tags": [
+      "eDel - DLs Update",
+      "eDel - User Access"
+    ],
+    "keywords": [
+      {
+        "keyword": "Exchange Admin Center",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "PowerApps – Request: DL Bulk Import",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "FNO User Export job",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "ED.PRODUCERS.PROD@gehealthcare.com",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "ed.producers.stage@gehealthcare.com",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "ed.producers.uat@gehealthcare.com",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "ed_fe_endusers@gehealthcare.com",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "Content Manager / Entitlement Manager / Service Admin",
+        "keyword_type": "Account / Role / Group"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-026",
+    "document_title": "CSL Product Service Logs (COF)",
+    "source_file_name": "COF Logs Product Service.docx",
+    "source_path": "resources\\eDelivery SOP\\Training\\COF Logs Product Service.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "Training / Work instruction",
+    "functional_area": "Monitoring / Logs",
+    "systems_applications": [
+      "COF",
+      "CSL"
+    ],
+    "error_codes_alerts": [],
+    "summary": "To investigate product sync issues: log in to COF, set source to 'product-service', search by product name or error text and review the Logs tab. Cross-check in FNO System > Transaction History with Entity type 'Product' submitted by CSL_Service_Account_PROD@gehealthcare.com from 07/01/2025 (release date); successful transactions appear in FNO audit logs.",
+    "tags": [
+      "eDel - DDL",
+      "eDel - Product Setup"
+    ],
+    "keywords": [
+      {
+        "keyword": "COF",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "CSL",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "product-service",
+        "keyword_type": "Service / Component"
+      },
+      {
+        "keyword": "FNO Transaction History",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "FNO audit logs",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "CSL_Service_Account_PROD@gehealthcare.com",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "cof.us.dhs.gehealthcare.com",
+        "keyword_type": "URL / Host"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-027",
+    "document_title": "Do's & Don'ts for Support Team (FNO)",
+    "source_file_name": "Do's & Don'ts for Support Team.docx",
+    "source_path": "resources\\eDelivery SOP\\Training\\Do's & Don'ts for Support Team.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "Training / Guideline",
+    "functional_area": "Governance",
+    "systems_applications": [
+      "Access Certifier",
+      "FNO"
+    ],
+    "error_codes_alerts": [
+      "Download link not available",
+      "Import/Export job stuck in waiting"
+    ],
+    "summary": "Allowed: create FE/Content/Entitlement/Service Admin/Device Management users for approved IDM requests; create customer users and link/unlink users to accounts only temporarily when a modality lacks a Service Admin (agree with Deployment managers), for 'Download link not available' fixes or the email bounce-back SOP; create FMI entitlements on approval; reports; inactivate users per Access Certifier; device extracts; edit entitlements for bounce-back, download-link fixes or adding primary contact/Ship-to email; product/package/file and account/user audits; inactivate/reactivate stuck Import/Export jobs; production test data only with approval. Not allowed: modifying production data objects outside these cases, any Administration menu setup, or configuration.",
+    "tags": [
+      "— (no matching tag)"
+    ],
+    "keywords": [
+      {
+        "keyword": "Download link not available",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "Import/Export job stuck in waiting",
+        "keyword_type": "Error Code / Message"
+      },
+      {
+        "keyword": "Access Certifier",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "FNO",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Device Extracts",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "FMI entitlements",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Administration menu",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Service Admin role",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "Device Management",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "IDM request",
+        "keyword_type": "Ticket Reference"
+      },
+      {
+        "keyword": "Email bounce back SOP",
+        "keyword_type": "Document Reference"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-028",
+    "document_title": "Flexera Customer Account Records Realignment Request Form",
+    "source_file_name": "Flexera Customer Account Records Realignment Request Form.docx",
+    "source_path": "resources\\eDelivery SOP\\Training\\Flexera Customer Account Records Realignment Request Form.docx",
+    "document_number": "DOC3286865",
+    "revision": "1",
+    "revision_date": "13-Feb-2026",
+    "document_type": "Form",
+    "functional_area": "Accounts / Data migration",
+    "systems_applications": [
+      "DDL",
+      "ERP",
+      "Flexera / FNO"
+    ],
+    "error_codes_alerts": [],
+    "summary": "Request form used with DOC3301378 to migrate/merge data between duplicate Flexera customer accounts created by DDL automated fulfilment from ERP order data. Captures: request type and reason; submitter name, team/modality, email, date; primary (destination) and duplicate (source) account names and IDs; entitlement IDs to migrate; device IDs/serials and whether entitlement mapping is needed; users (email/SSO) to add; other data, notes and attachments.",
+    "tags": [
+      "eDel - Data Migration",
+      "eDel - Entitlement_Transfer"
+    ],
+    "keywords": [
+      {
+        "keyword": "DDL",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Flexera / FNO",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "ERP",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Primary (Destination) Account",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Duplicate (Source) Account",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Entitlement ID",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Device ID / Serial number",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "DOC3286865",
+        "keyword_type": "Document Reference"
+      },
+      {
+        "keyword": "DOC3301378 Realignment SOP",
+        "keyword_type": "Document Reference"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-029",
+    "document_title": "Onboarding Access Requests (Support Team)",
+    "source_file_name": "Onboarding Access Requests.docx",
+    "source_path": "resources\\eDelivery SOP\\Training\\Onboarding Access Requests.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "Training / Checklist",
+    "functional_area": "Access management / Onboarding",
+    "systems_applications": [
+      "ALM",
+      "BOX",
+      "COF",
+      "Confluence Global SaaS",
+      "GitLab",
+      "MyAccess / Saviynt",
+      "MyWorkshop",
+      "OpenID Connect / IDAM",
+      "SumTotal",
+      "eDelivery",
+      "eLicense",
+      "eOM"
+    ],
+    "error_codes_alerts": [],
+    "summary": "Access checklist for new support members: via MyAccess (Saviynt) request eDelivery (Stage/UAT/Prod FNO), eLicense, BOX, MyWorkshop and eOM; Confluence via MyTech ticket (CI 'Confluence Global SaaS'); GE Learning via SumTotal; ALM needs Pulse domain request (Domain DPS_EP, Project Edelivery_CustomUX; ref INC0266138) and courses GEHC-DIG-230310-003318/-004147, GEHC-IT-CTO-230303-003301 Test Plan & Requirements; GitLab: course GEHC-DIG-SWE-2549044-Rev14 + APP_Gitlab group (Prod – Ping Directory), then get ReadyFix CLI; Pulse ITIL role (KB00300418, KB00304174, course GEHC-GXPGSNIA-181127-003919-EN-Rev4); MongoDB: complete MongoDB intro learning path and email certificate to Imran Jamadar; COF: register via OpenID Connect/GE SSO then ask Anusha S for DDL project access.",
+    "tags": [
+      "eDel - User Access"
+    ],
+    "keywords": [
+      {
+        "keyword": "MyAccess / Saviynt",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "eDelivery",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "eLicense",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "BOX",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "MyWorkshop",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "eOM",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Confluence Global SaaS",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "SumTotal",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "ALM",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "GitLab",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "COF",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "OpenID Connect / IDAM",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "ReadyFix CLI (redifixcli)",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "MongoDB",
+        "keyword_type": "Database / Collection"
+      },
+      {
+        "keyword": "DPS_EP (ALM domain)",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "Edelivery_CustomUX (ALM project)",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "APP_Gitlab (Prod – Ping Directory)",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "Pulse ITIL role",
+        "keyword_type": "Account / Role / Group"
+      },
+      {
+        "keyword": "INC0266138",
+        "keyword_type": "Ticket Reference"
+      },
+      {
+        "keyword": "KB00300418",
+        "keyword_type": "Document Reference"
+      },
+      {
+        "keyword": "KB00304174",
+        "keyword_type": "Document Reference"
+      },
+      {
+        "keyword": "GEHC-DIG-230310-003318",
+        "keyword_type": "Training Course"
+      },
+      {
+        "keyword": "GEHC-DIG-230310-004147",
+        "keyword_type": "Training Course"
+      },
+      {
+        "keyword": "GEHC-IT-CTO-230303-003301-TEST-PLAN_CURR",
+        "keyword_type": "Training Course"
+      },
+      {
+        "keyword": "GEHC-IT-CTO-230303-003301-REQUIREMENTS_CURR",
+        "keyword_type": "Training Course"
+      },
+      {
+        "keyword": "GEHC-DIG-SWE-2549044-Rev14",
+        "keyword_type": "Training Course"
+      },
+      {
+        "keyword": "GEHC-GXPGSNIA-181127-003919-EN-Rev4",
+        "keyword_type": "Training Course"
+      },
+      {
+        "keyword": "Imran Jamadar (MongoDB access)",
+        "keyword_type": "Contact / Escalation"
+      },
+      {
+        "keyword": "Anusha S (COF DDL access)",
+        "keyword_type": "Contact / Escalation"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-030",
+    "document_title": "Deleting a Contact in FNO",
+    "source_file_name": "SOP_deleting_contact.docx",
+    "source_path": "resources\\eDelivery SOP\\Training\\SOP_deleting_contact.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "Training / Work instruction",
+    "functional_area": "Accounts / Users",
+    "systems_applications": [
+      "FNO / FlexNet Operations"
+    ],
+    "error_codes_alerts": [],
+    "summary": "Remove a 'contact'-type user that duplicates a real user: search the email in FNO; via Entitlements > List Entitlements by order search by Contact Email; for each entitlement Edit and change the customer contact to the 'user'-type record (select account ID and user email), Save and Save & Deploy; then delete the contact-type user in FlexNet.",
+    "tags": [
+      "eDel - Entitlement Contact change",
+      "eDel - Data Cleanup"
+    ],
+    "keywords": [
+      {
+        "keyword": "FNO / FlexNet Operations",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Save and Deploy",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "Contact-type user",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "User-type user",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "List Entitlements by order",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Contact Email",
+        "keyword_type": "Field / Identifier"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-031",
+    "document_title": "Steps to Link Activation PDF to Entitlement",
+    "source_file_name": "Steps to link Activation PDF to Entitlement (1).docx",
+    "source_path": "resources\\eDelivery SOP\\Training\\Steps to link Activation PDF to Entitlement (1).docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "Training / Work instruction",
+    "functional_area": "Licensing",
+    "systems_applications": [
+      "FNO",
+      "GLPROD"
+    ],
+    "error_codes_alerts": [],
+    "summary": "Attach an activation (license) PDF to an entitlement in FNO: entitlement must be Deployed (not Draft) and line item type NF; if both Activation IDs share a product use either. Find entitlement (Entitlements > List Entitlement by order), select line item > Activate > Next > Add New Host (serial number = host name) > fulfill count 1 > Generate > Complete and copy Fulfillment ID. In Licenses > Licenses search the Activation/Fulfillment ID (on Hold), Set License, tick 'Preserve Uploaded File name', choose Binary and attach the PDF; Hold becomes NF; verify via Save to File. Normal integration: creates entitlement, fulfillment and attached PDF in Draft; GLPROD ship-confirm deploys it and sends the email.",
+    "tags": [
+      "— (no matching tag)"
+    ],
+    "keywords": [
+      {
+        "keyword": "Hold",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "Draft",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "Deployed",
+        "keyword_type": "Status / State"
+      },
+      {
+        "keyword": "GLPROD",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "FNO",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Set License",
+        "keyword_type": "API / Method"
+      },
+      {
+        "keyword": "Activation PDF / License file",
+        "keyword_type": "Tool / Script / File"
+      },
+      {
+        "keyword": "Fulfillment ID",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Activation ID",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Preserve Uploaded File name",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Binary",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "NF (line item type)",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Add New Host – Serial number",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "Ship confirm",
+        "keyword_type": "Field / Identifier"
+      }
+    ],
+    "notes": "—"
+  },
+  {
+    "sop_id": "SOP-032",
+    "document_title": "User Guide to Raise an Incident for eDelivery Issues",
+    "source_file_name": "User Guide to Raise an Incident for eDelivery Issues.docx",
+    "source_path": "resources\\eDelivery SOP\\Training\\User Guide to Raise an Incident for eDelivery Issues.docx",
+    "document_number": "Not stated",
+    "revision": "Not stated",
+    "revision_date": "Not stated",
+    "document_type": "User guide",
+    "functional_area": "Ticketing",
+    "systems_applications": [
+      "FNO / UAT FNO / Stage FNO",
+      "eDelivery Support Central"
+    ],
+    "error_codes_alerts": [],
+    "summary": "For users of FNO, UAT FNO and Stage FNO: open the eDelivery Support Central Confluence page, click 'Raise a support ticket', select 'gehc edelivery', enter title and issue details, attach files and Submit.",
+    "tags": [
+      "eDel - User Guidance"
+    ],
+    "keywords": [
+      {
+        "keyword": "eDelivery Support Central",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "FNO / UAT FNO / Stage FNO",
+        "keyword_type": "System / Application"
+      },
+      {
+        "keyword": "Raise a support ticket",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "gehc edelivery",
+        "keyword_type": "Field / Identifier"
+      },
+      {
+        "keyword": "ge-hc.atlassian.net (Confluence)",
+        "keyword_type": "URL / Host"
+      }
+    ],
+    "notes": "—"
+  }
+]
